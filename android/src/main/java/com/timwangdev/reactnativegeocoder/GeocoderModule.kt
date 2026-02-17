@@ -43,7 +43,7 @@ class GeocoderModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
     var maxResults = if (config.hasKey("maxResults")) config.getInt("maxResults") else -1
     if (maxResults <= 0) maxResults = 5
     try {
-      val addresses: MutableList<Address>
+      val addresses: MutableList<Address>?
       if (swLat != null && swLng != null && neLat != null && neLng != null) {
         addresses = geocoder.getFromLocationName(addressName, maxResults, swLat, swLng, neLat, neLng)
       } else {
